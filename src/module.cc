@@ -7,7 +7,7 @@ NAN_METHOD(Method) {
 }
 */
 
-void Module(::v8::Handle<::v8::Object> exports) {
+static void Module(::v8::Handle<::v8::Object> exports) {
   // exports->Set(NanSymbol("hello"),
   // FunctionTemplate::New(Method)->GetFunction());
 }

@@ -22,8 +22,7 @@
                 ],
                 'link_settings': {
                     'libraries': [
-                        '-lhdf5',
-                        '-lhdf5_hl'
+                        '-lfst'
                     ],
                     'ldflags': [
                         '-L<(openfst_home_linux)/lib'
@@ -69,8 +68,7 @@
                 },
                 'link_settings': {
                     'libraries': [
-                        '<(openfst_home_win)/lib/hdf5.lib',
-                        '<(openfst_home_win)/lib/hdf5_hl.lib'
+                        '<(openfst_home_win)/lib/fst.lib'
                     ]
                 }
             }],
@@ -92,13 +90,11 @@
                     '<!@(find src -name "*.cc")'
                 ],
                 'libraries': [
-                    '<(openfst_home_mac)/lib/libhdf5.dylib',
-                    '<(openfst_home_mac)/lib/libhdf5_hl.dylib'
+                    '<(openfst_home_mac)/lib/libfst.dylib'
                 ],
                 'link_settings': {
                     'libraries': [
-                        '<(openfst_home_mac)/lib/libhdf5.dylib',
-                        '<(openfst_home_mac)/lib/libhdf5_hl.dylib'
+                        '<(openfst_home_mac)/lib/libfst.dylib'
                     ],
                     'ldflags': [
                         '-L<(openfst_home_mac)/lib'

@@ -1,15 +1,14 @@
 #include <nan.h>
+#include <fst/fstlib.h>
 
-/*
 NAN_METHOD(Method) {
-  NanScope();
-  NanReturnValue(String::New("world"));
+  // test proper link against fst lib
+  fst::StdVectorFst fst;
 }
-*/
 
-static void Module(::v8::Handle<::v8::Object> exports) {
-  // exports->Set(NanSymbol("hello"),
-  // FunctionTemplate::New(Method)->GetFunction());
+NAN_MODULE_INIT(Module) {
+  // all exports here
+  Nan::Export(target, "hello", Method);
 }
 
 NODE_MODULE(openfst, Module);

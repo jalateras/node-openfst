@@ -1,6 +1,7 @@
 {
   "name": "openfst",
   "version": "0.1.0",
+  "author": "Sutoiku",
   "description": "NodeJS binding for OpenFst",
   "main": "./index.js",
   "repository": {
@@ -8,28 +9,15 @@
     "url": "https://github.com/sutoiku/node-openfst.git"
   },
   "dependencies": {
-    "node-pre-gyp": "*",
-    "nan": "*"
+    "nan": "^2.3.3",
+    "standard": "^7.0.1"
   },
-  "bundledDependencies": [
-    "node-pre-gyp"
-  ],
   "devDependencies": {
-    "chai": "*",
-    "jshint": "*",
-    "mocha": "*",
-    "mocha-jenkins-reporter": "*"
+    "standard": "^7.0.1",
+    "tape": "^4.5.1"
   },
   "scripts": {
-    "install":  "./node_modules/.bin/node-pre-gyp install --fallback-to-build",
-    "prebuild": "./node_modules/.bin/node-pre-gyp rebuild && ./node_modules/.bin/node-pre-gyp package",
-    "test":     "mocha test",
-    "format-c": "for i in `find ./src -name \"*.cc\" -o -name \"*.hh\"`; do clang-format -i $i; done;",
-    "lint":     "./node_modules/.bin/jshint *.js lib/* test/*"
-  },
-  "binary": {
-    "module_name": "openfst",
-    "module_path": "./lib/binding/",
-    "host": ""
+    "format-c": "for i in $(find ./src -name \"*.cc\" -o -name \"*.hh\"); do clang-format -i $i; done;",
+    "test": "./node_modules/.bin/standard && ./node_modules/.bin/tape test/*.js"
   }
 }

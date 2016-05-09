@@ -2,7 +2,9 @@
     "variables": {
         "openfst_home_linux": "/usr/local",
         "openfst_home_win": "C:/Software/openfst",
-        "openfst_home_mac": "/usr/local"
+        "openfst_home_mac": "/usr/local",
+        "module_name": "openfst",
+        "module_path": "./lib/binding/",
     },
     'targets': [
         {
@@ -18,7 +20,7 @@
                     '<(openfst_home_linux)/include'
                 ],
                 'sources': [
-                    '<!@(find src -name "*.cc")'
+                    '<!@(find src -name "src/*.cc")'
                 ],
                 'link_settings': {
                     'libraries': [
@@ -87,7 +89,7 @@
                     '<(openfst_home_mac)/include'
                 ],
                 'sources': [
-                    '<!@(find src -name "*.cc")'
+                    '<!@(find src -name "module.cc")'
                 ],
                 'libraries': [
                     '<(openfst_home_mac)/lib/libfst.dylib'

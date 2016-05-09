@@ -1,14 +1,23 @@
 #include <nan.h>
-#include <fst/fstlib.h>
+#include <transducer.cc>
+#include <arc.cc>
 
-NAN_METHOD(Method) {
-  // test proper link against fst lib
-  fst::StdVectorFst fst;
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void Hello(const v8::FunctionCallbackInfo<Value>& args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(isolate, "world"));
 }
 
-NAN_MODULE_INIT(Module) {
-  // all exports here
-  Nan::Export(target, "hello", Method);
+void Init(Local<Object> exports) {
+  NODE_SET_METHOD(exports, "hello", Hello);
+  NodeFst::Transducer::Init(exports);
+  NodeFst::Arc::Init(exports);
 }
 
-NODE_MODULE(openfst, Module);
+NODE_MODULE(openfst, Init);
